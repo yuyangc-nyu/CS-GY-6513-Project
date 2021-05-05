@@ -1,9 +1,47 @@
 ﻿{
   "paragraphs": [
     {
-      "text": "%pyspark\nfrom __future__ import print_function\nfrom csv import reader\nlines = sc.textFile(\"01_April_30_covid_impact_survey.csv\").mapPartitions(lambda x: reader(x))\nmessages = lines.map(lambda line: (line[71],1)).sortByKey().reduceByKey(lambda x, y: x + y).map(lambda x: str(x[0]) + '\\t' + str(x[1]))\nmessages.saveAsTextFile(\"proj.out\")",
+      "text": "// In this zeppelin notebook, we used Spark program to get the ratio of people answering each of the answer keys in column \"ECON8H\", for analysis purpose.",
       "user": "nbuser",
-      "dateUpdated": "2021-05-03T11:11:20-0400",
+      "dateUpdated": "2021-05-05T10:39:29-0400",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620225369186_238855379",
+      "id": "paragraph_1620225369186_238855379",
+      "dateCreated": "2021-05-05T10:36:09-0400",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:719",
+      "dateFinished": "2021-05-05T10:39:52-0400",
+      "dateStarted": "2021-05-05T10:39:29-0400",
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      }
+    },
+    {
+      "text": "%pyspark\nfrom __future__ import print_function\nfrom csv import reader\nlines = sc.textFile(\"01_April_30_covid_impact_survey.csv\").mapPartitions(lambda x: reader(x))\nmessages = lines.map(lambda line: (line[72],1)).sortByKey().reduceByKey(lambda x, y: x + y).map(lambda x: str(x[0]) + '\\t' + str(x[1]))\nmessages.saveAsTextFile(\"proj.out\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T01:52:16-0400",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -35,16 +73,16 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://hc15.nyu.cluster:43595/jobs/job?id=22",
-              "$$hashKey": "object:646"
+              "jobUrl": "http://hc15.nyu.cluster:43595/jobs/job?id=33",
+              "$$hashKey": "object:402"
             },
             {
-              "jobUrl": "http://hc15.nyu.cluster:43595/jobs/job?id=23",
-              "$$hashKey": "object:647"
+              "jobUrl": "http://hc15.nyu.cluster:43595/jobs/job?id=34",
+              "$$hashKey": "object:403"
             },
             {
-              "jobUrl": "http://hc15.nyu.cluster:43595/jobs/job?id=24",
-              "$$hashKey": "object:648"
+              "jobUrl": "http://hc15.nyu.cluster:43595/jobs/job?id=35",
+              "$$hashKey": "object:404"
             }
           ],
           "interpreterSettingId": "spark"
@@ -54,16 +92,16 @@
       "jobName": "paragraph_1620026905086_510754700",
       "id": "paragraph_1620026905086_510754700",
       "dateCreated": "2021-05-03T03:28:25-0400",
-      "dateStarted": "2021-05-03T11:11:20-0400",
-      "dateFinished": "2021-05-03T11:11:21-0400",
+      "dateStarted": "2021-05-04T01:52:16-0400",
+      "dateFinished": "2021-05-04T01:52:17-0400",
       "status": "FINISHED",
       "focus": true,
-      "$$hashKey": "object:559"
+      "$$hashKey": "object:282"
     },
     {
-      "text": "%pyspark\nlines = sc.textFile(\"02_May_12_covid_impact_survey.csv\").mapPartitions(lambda x: reader(x))\nmessages = lines.map(lambda line: (line[71],1)).sortByKey().reduceByKey(lambda x, y: x + y).map(lambda x: str(x[0]) + '\\t' + str(x[1]))\nmessages.saveAsTextFile(\"proj2.out\")",
-      "user": "nbuser",
-      "dateUpdated": "2021-05-04T01:21:52-0400",
+      "text": "%pyspark\nlines = sc.textFile(\"02_May_12_covid_impact_survey.csv\").mapPartitions(lambda x: reader(x))\nmessages = lines.map(lambda line: (line[72],1)).sortByKey().reduceByKey(lambda x, y: x + y).map(lambda x: str(x[0]) + '\\t' + str(x[1]))\nmessages.saveAsTextFile(\"proj2.out\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T01:52:20-0400",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -82,6 +120,10 @@
         "params": {},
         "forms": {}
       },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
       "apps": [],
       "runtimeInfos": {
         "jobUrl": {
@@ -91,16 +133,16 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://hc15.nyu.cluster:43595/jobs/job?id=27",
-              "$$hashKey": "object:900"
+              "jobUrl": "http://hc15.nyu.cluster:43595/jobs/job?id=36",
+              "$$hashKey": "object:458"
             },
             {
-              "jobUrl": "http://hc15.nyu.cluster:43595/jobs/job?id=28",
-              "$$hashKey": "object:901"
+              "jobUrl": "http://hc15.nyu.cluster:43595/jobs/job?id=37",
+              "$$hashKey": "object:459"
             },
             {
-              "jobUrl": "http://hc15.nyu.cluster:43595/jobs/job?id=29",
-              "$$hashKey": "object:902"
+              "jobUrl": "http://hc15.nyu.cluster:43595/jobs/job?id=38",
+              "$$hashKey": "object:460"
             }
           ],
           "interpreterSettingId": "spark"
@@ -110,19 +152,15 @@
       "jobName": "paragraph_1620053135690_1112567160",
       "id": "paragraph_1620053135690_1112567160",
       "dateCreated": "2021-05-03T10:45:35-0400",
+      "dateStarted": "2021-05-04T01:52:20-0400",
+      "dateFinished": "2021-05-04T01:52:21-0400",
       "status": "FINISHED",
-      "$$hashKey": "object:560",
-      "dateFinished": "2021-05-04T01:21:53-0400",
-      "dateStarted": "2021-05-04T01:21:52-0400",
-      "results": {
-        "code": "SUCCESS",
-        "msg": []
-      }
+      "$$hashKey": "object:283"
     },
     {
-      "text": "%pyspark\nlines = sc.textFile(\"03_June_9_covid_impact_survey.csv\").mapPartitions(lambda x: reader(x))\nmessages = lines.map(lambda line: (line[71],1)).sortByKey().reduceByKey(lambda x, y: x + y).map(lambda x: str(x[0]) + '\\t' + str(x[1]))\nmessages.saveAsTextFile(\"proj3.out\")",
-      "user": "nbuser",
-      "dateUpdated": "2021-05-04T01:22:04-0400",
+      "text": "%pyspark\nlines = sc.textFile(\"03_June_9_covid_impact_survey.csv\").mapPartitions(lambda x: reader(x))\nmessages = lines.map(lambda line: (line[72],1)).sortByKey().reduceByKey(lambda x, y: x + y).map(lambda x: str(x[0]) + '\\t' + str(x[1]))\nmessages.saveAsTextFile(\"proj3.out\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-04T01:52:23-0400",
       "progress": 0,
       "config": {
         "colWidth": 12,
@@ -140,6 +178,10 @@
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
       },
       "apps": [],
       "runtimeInfos": {
@@ -150,16 +192,16 @@
           "group": "spark",
           "values": [
             {
-              "jobUrl": "http://hc15.nyu.cluster:43595/jobs/job?id=30",
-              "$$hashKey": "object:1024"
+              "jobUrl": "http://hc15.nyu.cluster:43595/jobs/job?id=39",
+              "$$hashKey": "object:514"
             },
             {
-              "jobUrl": "http://hc15.nyu.cluster:43595/jobs/job?id=31",
-              "$$hashKey": "object:1025"
+              "jobUrl": "http://hc15.nyu.cluster:43595/jobs/job?id=40",
+              "$$hashKey": "object:515"
             },
             {
-              "jobUrl": "http://hc15.nyu.cluster:43595/jobs/job?id=32",
-              "$$hashKey": "object:1026"
+              "jobUrl": "http://hc15.nyu.cluster:43595/jobs/job?id=41",
+              "$$hashKey": "object:516"
             }
           ],
           "interpreterSettingId": "spark"
@@ -169,46 +211,10 @@
       "jobName": "paragraph_1620026692723_1492096165",
       "id": "paragraph_1620026692723_1492096165",
       "dateCreated": "2021-05-03T03:24:52-0400",
+      "dateStarted": "2021-05-04T01:52:23-0400",
+      "dateFinished": "2021-05-04T01:52:24-0400",
       "status": "FINISHED",
-      "$$hashKey": "object:561",
-      "dateFinished": "2021-05-04T01:22:05-0400",
-      "dateStarted": "2021-05-04T01:22:04-0400",
-      "results": {
-        "code": "SUCCESS",
-        "msg": []
-      }
-    },
-    {
-      "text": "%pyspark\n",
-      "user": "nbuser",
-      "dateUpdated": "2021-05-04T01:22:04-0400",
-      "progress": 0,
-      "config": {
-        "colWidth": 12,
-        "fontSize": 9,
-        "enabled": true,
-        "results": {},
-        "editorSetting": {
-          "language": "python",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "editorMode": "ace/mode/python"
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1620105724471_496271990",
-      "id": "paragraph_1620105724471_496271990",
-      "dateCreated": "2021-05-04T01:22:04-0400",
-      "status": "READY",
-      "focus": true,
-      "$$hashKey": "object:915"
+      "$$hashKey": "object:284"
     }
   ],
   "name": "Data Analysis",
