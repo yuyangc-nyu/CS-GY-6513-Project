@@ -1,0 +1,1310 @@
+{
+  "paragraphs": [
+    {
+      "text": "%pyspark\n# import packages needed\nimport sys\nfrom operator import add\nfrom csv import reader\nfrom pyspark import SparkContext",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-15 05:03:53.006",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619786672928_47589855",
+      "id": "paragraph_1619786672928_47589855",
+      "dateCreated": "2021-04-30 08:44:32.928",
+      "dateStarted": "2021-05-03 01:07:33.472",
+      "dateFinished": "2021-05-03 01:07:33.481",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n# read in csv files that have been cleaned\nlines1 \u003d sc.textFile(\"/user/cg3741/survey1.csv\")\nlines2 \u003d sc.textFile(\"/user/cg3741/survey2.csv\")\nlines3 \u003d sc.textFile(\"/user/cg3741/survey3.csv\")\nlines1 \u003d lines1.mapPartitions(lambda x: reader(x))\nlines2 \u003d lines2.mapPartitions(lambda x: reader(x))\nlines3 \u003d lines3.mapPartitions(lambda x: reader(x))",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-15 05:04:14.964",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619786697252_310834713",
+      "id": "paragraph_1619786697252_310834713",
+      "dateCreated": "2021-04-30 08:44:57.253",
+      "dateStarted": "2021-05-03 01:07:34.271",
+      "dateFinished": "2021-05-03 01:07:34.991",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n# simple try out to see if the file is loaded right\nlines1.take(5)",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-15 05:04:37.921",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[[\u00270\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00271\u0027, \u00271\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00273\u0027, \u00277\u0027, \u00271\u0027, \u00271\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00272\u0027, \u00273\u0027, \u0027$20,000 to under $30,000\u0027], [\u00270\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00271\u0027, \u00271\u0027, \u00271\u0027, \u00271\u0027, \u00271\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00271\u0027, \u00271\u0027, \u00271\u0027, \u00271\u0027, \u00271\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00271\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00273\u0027, \u00272\u0027, \u00275\u0027, \u00275\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00271\u0027, \u00274\u0027, \u00271\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00273\u0027, \u00273\u0027, \u0027$150,000 or more\u0027], [\u00270\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00271\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00272\u0027, \u00270\u0027, \u00271\u0027, \u00271\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00273\u0027, \u00273\u0027, \u0027$150,000 or more\u0027], [\u00270\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00271\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00271\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00273\u0027, \u00272\u0027, \u00273\u0027, \u00273\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00271\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00273\u0027, \u00273\u0027, \u0027$75,000 to under $100,000\u0027], [\u00271\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00271\u0027, \u00271\u0027, \u00270\u0027, \u00271\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00270\u0027, \u00273\u0027, \u00272\u0027, \u00272\u0027, \u00271\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00271\u0027, \u00274\u0027, \u00271\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00274\u0027, \u00273\u0027, \u00273\u0027, \u0027$75,000 to under $100,000\u0027]]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://hc07.nyu.cluster:40376/jobs/job?id\u003d0"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619786775103_1324457651",
+      "id": "paragraph_1619786775103_1324457651",
+      "dateCreated": "2021-04-30 08:46:15.103",
+      "dateStarted": "2021-05-02 23:44:36.860",
+      "dateFinished": "2021-05-02 23:44:39.384",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n# a helper function to help with ouput format\ndef toCSVLine(data):\n    total \u003d data[-1]\n    return \u0027,\u0027.join(str(d/total) for d in data)",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-15 05:05:01.474",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619881116944_145933509",
+      "id": "paragraph_1619881116944_145933509",
+      "dateCreated": "2021-05-01 10:58:36.944",
+      "dateStarted": "2021-05-03 01:07:39.331",
+      "dateFinished": "2021-05-03 01:07:39.337",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n# get phys2 realted columns and count\n\nphys2_1 \u003d lines1.map(lambda x : (\u0027phys1\u0027, (int(x[0]), int(x[1]), int(x[2]), int(x[3]), int(x[4]), int(x[5]), int(x[6]), int(x[7]), int(x[8]), int(x[9]), \\\n                                            int(x[10]), int(x[11]), int(x[12]), int(x[13]), int(x[14]), int(x[15]), int(x[16]), int(x[17]), int(x[18]), 1)))\nphys2_1 \u003d phys2_1.reduceByKey(lambda x, y : (x[0] + y[0], x[1] + y[1], x[2] + y[2], x[3] + y[3], x[4] + y[4], x[5] + y[5], x[6] + y[6], x[7] + y[7], x[8] + y[8], x[9] + y[9], \\\n                                            x[10] + y[10], x[11] + y[11], x[12] + y[12], x[13] + y[13], x[14] + y[14], x[15] + y[15], x[16] + y[16], x[17] + y[17], x[18] + y[18], x[19] + y[19]))\nresult1 \u003d phys2_1.map(lambda x: toCSVLine(x[1]))\n\n                                            \nphys2_2 \u003d lines2.map(lambda x : (\u0027phys1\u0027, (int(x[0]), int(x[1]), int(x[2]), int(x[3]), int(x[4]), int(x[5]), int(x[6]), int(x[7]), int(x[8]), int(x[9]), \\\n                                            int(x[10]), int(x[11]), int(x[12]), int(x[13]), int(x[14]), int(x[15]), int(x[16]), int(x[17]), int(x[18]), 1)))\nphys2_2 \u003d phys2_2.reduceByKey(lambda x, y : (x[0] + y[0], x[1] + y[1], x[2] + y[2], x[3] + y[3], x[4] + y[4], x[5] + y[5], x[6] + y[6], x[7] + y[7], x[8] + y[8], x[9] + y[9], \\\n                                            x[10] + y[10], x[11] + y[11], x[12] + y[12], x[13] + y[13], x[14] + y[14], x[15] + y[15], x[16] + y[16], x[17] + y[17], x[18] + y[18], x[19] + y[19]))\nresult2 \u003d phys2_2.map(lambda x: toCSVLine(x[1]))                                            \n\n                                            \nphys2_3 \u003d lines3.map(lambda x : (\u0027phys1\u0027, (int(x[0]), int(x[1]), int(x[2]), int(x[3]), int(x[4]), int(x[5]), int(x[6]), int(x[7]), int(x[8]), int(x[9]), \\\n                                            int(x[10]), int(x[11]), int(x[12]), int(x[13]), int(x[14]), int(x[15]), int(x[16]), int(x[17]), int(x[18]), 1)))\nphys2_3 \u003d phys2_3.reduceByKey(lambda x, y : (x[0] + y[0], x[1] + y[1], x[2] + y[2], x[3] + y[3], x[4] + y[4], x[5] + y[5], x[6] + y[6], x[7] + y[7], x[8] + y[8], x[9] + y[9], \\\n                                            x[10] + y[10], x[11] + y[11], x[12] + y[12], x[13] + y[13], x[14] + y[14], x[15] + y[15], x[16] + y[16], x[17] + y[17], x[18] + y[18], x[19] + y[19]))                                            \nresult3 \u003d phys2_3.map(lambda x: toCSVLine(x[1]))",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-15 05:05:31.904",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619786815614_432889290",
+      "id": "paragraph_1619786815614_432889290",
+      "dateCreated": "2021-04-30 08:46:55.614",
+      "dateStarted": "2021-05-03 01:07:40.572",
+      "dateFinished": "2021-05-03 01:07:40.809",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nresult \u003d result1.union(result2).union(result3)\nresult1.saveAsTextFile(\u0027phys2_1.out\u0027)\nresult2.saveAsTextFile(\u0027phys2_2.out\u0027)\nresult3.saveAsTextFile(\u0027phys2_3.out\u0027)\nresult.saveAsTextFile(\u0027phys2.out\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-02 23:45:35.575",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true,
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://hc07.nyu.cluster:40376/jobs/job?id\u003d1"
+            },
+            {
+              "jobUrl": "http://hc07.nyu.cluster:40376/jobs/job?id\u003d2"
+            },
+            {
+              "jobUrl": "http://hc07.nyu.cluster:40376/jobs/job?id\u003d3"
+            },
+            {
+              "jobUrl": "http://hc07.nyu.cluster:40376/jobs/job?id\u003d4"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619788155980_670762614",
+      "id": "paragraph_1619788155980_670762614",
+      "dateCreated": "2021-04-30 09:09:15.981",
+      "dateStarted": "2021-05-02 23:45:35.578",
+      "dateFinished": "2021-05-02 23:45:39.046",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n# get econ8 realted columns and count\necon8_1 \u003d lines1.map(lambda x : (\u0027econ8\u0027, (int(x[22]), int(x[23]), int(x[24]), int(x[25]), int(x[26]), int(x[27]), int(x[28]), int(x[29]), int(x[30]), int(x[31]), \\\n                                            int(x[32]), int(x[33]), int(x[34]), int(x[35]), int(x[36]), int(x[37]), int(x[38]), int(x[39]), int(x[40]), 1)))\necon8_1 \u003d econ8_1.reduceByKey(lambda x, y : (x[0] + y[0], x[1] + y[1], x[2] + y[2], x[3] + y[3], x[4] + y[4], x[5] + y[5], x[6] + y[6], x[7] + y[7], x[8] + y[8], x[9] + y[9], \\\n                                            x[10] + y[10], x[11] + y[11], x[12] + y[12], x[13] + y[13], x[14] + y[14], x[15] + y[15], x[16] + y[16], x[17] + y[17], x[18] + y[18], x[19] + y[19]))\nresult_econ8_1 \u003d econ8_1.map(lambda x: toCSVLine(x[1]))\n\necon8_2 \u003d lines2.map(lambda x : (\u0027econ8\u0027, (int(x[22]), int(x[23]), int(x[24]), int(x[25]), int(x[26]), int(x[27]), int(x[28]), int(x[29]), int(x[30]), int(x[31]), \\\n                                            int(x[32]), int(x[33]), int(x[34]), int(x[35]), int(x[36]), int(x[37]), int(x[38]), int(x[39]), int(x[40]), 1)))\necon8_2 \u003d econ8_2.reduceByKey(lambda x, y : (x[0] + y[0], x[1] + y[1], x[2] + y[2], x[3] + y[3], x[4] + y[4], x[5] + y[5], x[6] + y[6], x[7] + y[7], x[8] + y[8], x[9] + y[9], \\\n                                            x[10] + y[10], x[11] + y[11], x[12] + y[12], x[13] + y[13], x[14] + y[14], x[15] + y[15], x[16] + y[16], x[17] + y[17], x[18] + y[18], x[19] + y[19]))\nresult_econ8_2 \u003d econ8_2.map(lambda x: toCSVLine(x[1]))\n\necon8_3 \u003d lines3.map(lambda x : (\u0027econ8\u0027, (int(x[22]), int(x[23]), int(x[24]), int(x[25]), int(x[26]), int(x[27]), int(x[28]), int(x[29]), int(x[30]), int(x[31]), \\\n                                            int(x[32]), int(x[33]), int(x[34]), int(x[35]), int(x[36]), int(x[37]), int(x[38]), int(x[39]), int(x[40]), 1)))\necon8_3 \u003d econ8_3.reduceByKey(lambda x, y : (x[0] + y[0], x[1] + y[1], x[2] + y[2], x[3] + y[3], x[4] + y[4], x[5] + y[5], x[6] + y[6], x[7] + y[7], x[8] + y[8], x[9] + y[9], \\\n                                            x[10] + y[10], x[11] + y[11], x[12] + y[12], x[13] + y[13], x[14] + y[14], x[15] + y[15], x[16] + y[16], x[17] + y[17], x[18] + y[18], x[19] + y[19]))\nresult_econ8_3 \u003d econ8_3.map(lambda x: toCSVLine(x[1]))",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-15 05:05:47.401",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619790185566_691306664",
+      "id": "paragraph_1619790185566_691306664",
+      "dateCreated": "2021-04-30 09:43:05.566",
+      "dateStarted": "2021-05-01 10:58:47.883",
+      "dateFinished": "2021-05-01 10:58:47.966",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n# simple debug\nresult_econ8_3.collect()",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-15 05:05:54.929",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[\u00270.29993337774816786,0.3033977348434377,0.31845436375749503,0.3176548967355097,0.3283144570286476,0.2875416389073951,0.301798800799467,0.3092604930046636,0.30299800133244503,0.30473017988007994,0.2923384410393071,0.3101932045303131,0.3104596935376416,0.2918054630246502,0.29700199866755495,0.2852764823451033,0.3089940039973351,0.3481678880746169,0.5445702864756828,1.0\u0027]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://hc03.nyu.cluster:42733/jobs/job?id\u003d51"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619876097520_1936042801",
+      "id": "paragraph_1619876097520_1936042801",
+      "dateCreated": "2021-05-01 09:34:57.520",
+      "dateStarted": "2021-05-01 10:58:50.044",
+      "dateFinished": "2021-05-01 10:58:50.229",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nresult_econ8 \u003d result_econ8_1.union(result_econ8_2).union(result_econ8_3)\nresult_econ8_1.saveAsTextFile(\u0027econ8_1.out\u0027)\nresult_econ8_2.saveAsTextFile(\u0027econ8_2.out\u0027)\nresult_econ8_3.saveAsTextFile(\u0027econ8_3.out\u0027)\nresult_econ8.saveAsTextFile(\u0027econ8.out\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-01 11:01:55.172",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://hc03.nyu.cluster:42733/jobs/job?id\u003d56"
+            },
+            {
+              "jobUrl": "http://hc03.nyu.cluster:42733/jobs/job?id\u003d57"
+            },
+            {
+              "jobUrl": "http://hc03.nyu.cluster:42733/jobs/job?id\u003d58"
+            },
+            {
+              "jobUrl": "http://hc03.nyu.cluster:42733/jobs/job?id\u003d59"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619876110647_1705664236",
+      "id": "paragraph_1619876110647_1705664236",
+      "dateCreated": "2021-05-01 09:35:10.647",
+      "dateStarted": "2021-05-01 11:01:55.174",
+      "dateFinished": "2021-05-01 11:01:56.579",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n# get econ7 realted columns and count\necon7_1 \u003d lines1.map(lambda x : (\u0027econ7\u0027, (int(x[41]), int(x[42]), int(x[43]), int(x[44]), int(x[45]), int(x[46]), int(x[47]), int(x[48]), 1)))\necon7_1 \u003d econ7_1.reduceByKey(lambda x, y : (x[0] + y[0], x[1] + y[1], x[2] + y[2], x[3] + y[3], x[4] + y[4], x[5] + y[5], x[6] + y[6], x[7] + y[7], x[8] + y[8]))\nresult_econ7_1 \u003d econ7_1.map(lambda x : toCSVLine(x[1]))\n\necon7_2 \u003d lines2.map(lambda x : (\u0027econ7\u0027, (int(x[41]), int(x[42]), int(x[43]), int(x[44]), int(x[45]), int(x[46]), int(x[47]), int(x[48]), 1)))\necon7_2 \u003d econ7_2.reduceByKey(lambda x, y : (x[0] + y[0], x[1] + y[1], x[2] + y[2], x[3] + y[3], x[4] + y[4], x[5] + y[5], x[6] + y[6], x[7] + y[7], x[8] + y[8]))\nresult_econ7_2 \u003d econ7_2.map(lambda x : toCSVLine(x[1]))\n\necon7_3 \u003d lines3.map(lambda x : (\u0027econ7\u0027, (int(x[41]), int(x[42]), int(x[43]), int(x[44]), int(x[45]), int(x[46]), int(x[47]), int(x[48]), 1)))\necon7_3 \u003d econ7_3.reduceByKey(lambda x, y : (x[0] + y[0], x[1] + y[1], x[2] + y[2], x[3] + y[3], x[4] + y[4], x[5] + y[5], x[6] + y[6], x[7] + y[7], x[8] + y[8]))\nresult_econ7_3 \u003d econ7_3.map(lambda x : toCSVLine(x[1]))",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-15 05:06:06.133",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619881315173_174343932",
+      "id": "paragraph_1619881315173_174343932",
+      "dateCreated": "2021-05-01 11:01:55.173",
+      "dateStarted": "2021-05-02 06:14:21.759",
+      "dateFinished": "2021-05-02 06:14:21.886",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nresult_econ7 \u003d result_econ7_1.union(result_econ7_2).union(result_econ7_3)\nresult_econ7_1.saveAsTextFile(\u0027econ7_1.out\u0027)\nresult_econ7_2.saveAsTextFile(\u0027econ7_2.out\u0027)\nresult_econ7_3.saveAsTextFile(\u0027econ7_3.out\u0027)\nresult_econ7.saveAsTextFile(\u0027econ7.out\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-02 06:16:17.830",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://hc13.nyu.cluster:46394/jobs/job?id\u003d7"
+            },
+            {
+              "jobUrl": "http://hc13.nyu.cluster:46394/jobs/job?id\u003d8"
+            },
+            {
+              "jobUrl": "http://hc13.nyu.cluster:46394/jobs/job?id\u003d9"
+            },
+            {
+              "jobUrl": "http://hc13.nyu.cluster:46394/jobs/job?id\u003d10"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619950273264_602359028",
+      "id": "paragraph_1619950273264_602359028",
+      "dateCreated": "2021-05-02 06:11:13.264",
+      "dateStarted": "2021-05-02 06:16:17.905",
+      "dateFinished": "2021-05-02 06:16:19.080",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n# get econ1 realted columns and count\necon1_1 \u003d lines1.map(lambda x: (int(x[52]), 1))\nresult_econ1_1 \u003d econ1_1.reduceByKey(add).sortBy(lambda x: x[0]).map(lambda x: (x[1]/8790))\n\necon1_2 \u003d lines2.map(lambda x: (int(x[52]), 1))\nresult_econ1_2 \u003d econ1_2.reduceByKey(add).sortBy(lambda x: x[0]).map(lambda x: (x[1]/8974))\n\necon1_3 \u003d lines3.map(lambda x: (int(x[52]), 1))\nresult_econ1_3 \u003d econ1_3.reduceByKey(add).sortBy(lambda x: x[0]).map(lambda x: (x[1]/7505))",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-15 05:06:14.471",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://hc13.nyu.cluster:46394/jobs/job?id\u003d24"
+            },
+            {
+              "jobUrl": "http://hc13.nyu.cluster:46394/jobs/job?id\u003d25"
+            },
+            {
+              "jobUrl": "http://hc13.nyu.cluster:46394/jobs/job?id\u003d26"
+            },
+            {
+              "jobUrl": "http://hc13.nyu.cluster:46394/jobs/job?id\u003d27"
+            },
+            {
+              "jobUrl": "http://hc13.nyu.cluster:46394/jobs/job?id\u003d28"
+            },
+            {
+              "jobUrl": "http://hc13.nyu.cluster:46394/jobs/job?id\u003d29"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619950463346_175407489",
+      "id": "paragraph_1619950463346_175407489",
+      "dateCreated": "2021-05-02 06:14:23.347",
+      "dateStarted": "2021-05-02 06:31:48.774",
+      "dateFinished": "2021-05-02 06:31:49.691",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nresult_econ1 \u003d result_econ1_1.union(result_econ1_2).union(result_econ1_3)\nresult_econ1_1.saveAsTextFile(\u0027econ1_1.out\u0027)\nresult_econ1_2.saveAsTextFile(\u0027econ1_2.out\u0027)\nresult_econ1_3.saveAsTextFile(\u0027econ1_3.out\u0027)\nresult_econ1.saveAsTextFile(\u0027econ1.out\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-02 06:32:40.692",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://hc13.nyu.cluster:46394/jobs/job?id\u003d32"
+            },
+            {
+              "jobUrl": "http://hc13.nyu.cluster:46394/jobs/job?id\u003d33"
+            },
+            {
+              "jobUrl": "http://hc13.nyu.cluster:46394/jobs/job?id\u003d34"
+            },
+            {
+              "jobUrl": "http://hc13.nyu.cluster:46394/jobs/job?id\u003d35"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619950903704_2003336257",
+      "id": "paragraph_1619950903704_2003336257",
+      "dateCreated": "2021-05-02 06:21:43.704",
+      "dateStarted": "2021-05-02 06:32:40.695",
+      "dateFinished": "2021-05-02 06:32:42.205",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n# get econ4 realted columns and count\necon4_1 \u003d lines1.map(lambda x: (int(x[53]), 1))\nresult_econ4_1 \u003d econ4_1.reduceByKey(add).sortBy(lambda x : x[0]).map(lambda x: (x[1]/8790))\n\necon4_2 \u003d lines2.map(lambda x: (int(x[53]), 1))\nresult_econ4_2 \u003d econ4_2.reduceByKey(add).sortBy(lambda x: x[0]).map(lambda x: (x[1]/8974))\n\necon4_3 \u003d lines3.map(lambda x: (int(x[53]), 1))\nresult_econ4_3 \u003d econ4_3.reduceByKey(add).sortBy(lambda x: x[0]).map(lambda x: (x[1]/7505))\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-15 05:06:19.964",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d0"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d1"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d2"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d3"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d4"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d5"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619951453226_1707018737",
+      "id": "paragraph_1619951453226_1707018737",
+      "dateCreated": "2021-05-02 06:30:53.226",
+      "dateStarted": "2021-05-03 01:07:48.690",
+      "dateFinished": "2021-05-03 01:07:53.861",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nresult_econ4_1.saveAsTextFile(\u0027econ4_1.out\u0027)\nresult_econ4_2.saveAsTextFile(\u0027econ4_2.out\u0027)\nresult_econ4_3.saveAsTextFile(\u0027econ4_3.out\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-03 01:08:47.664",
+      "progress": 0,
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d6"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d7"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d8"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619952141685_1021693214",
+      "id": "paragraph_1619952141685_1021693214",
+      "dateCreated": "2021-05-02 06:42:21.686",
+      "dateStarted": "2021-05-03 01:08:47.666",
+      "dateFinished": "2021-05-03 01:08:48.959",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\necon4a_1 \u003d lines1.map(lambda x: (int(x[54]), 1))\nresult_econ4a_1 \u003d econ4a_1.reduceByKey(add).sortBy(lambda x : x[0]).map(lambda x: (x[1]/8790))\n\necon4a_2 \u003d lines2.map(lambda x: (int(x[54]), 1))\nresult_econ4a_2 \u003d econ4a_2.reduceByKey(add).sortBy(lambda x: x[0]).map(lambda x: (x[1]/8974))\n\necon4a_3 \u003d lines3.map(lambda x: (int(x[54]), 1))\nresult_econ4a_3 \u003d econ4a_3.reduceByKey(add).sortBy(lambda x: x[0]).map(lambda x: (x[1]/7505))",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-03 01:22:24.133",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d42"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d43"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d44"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d45"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d46"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d47"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620018527666_1377236669",
+      "id": "paragraph_1620018527666_1377236669",
+      "dateCreated": "2021-05-03 01:08:47.666",
+      "dateStarted": "2021-05-03 01:22:24.135",
+      "dateFinished": "2021-05-03 01:22:25.128",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-03 01:22:17.796",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[(0, 71), (1, 2907), (2, 1211), (3, 1023), (4, 883), (5, 2683), (7, 12)]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d41"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620019175804_180021739",
+      "id": "paragraph_1620019175804_180021739",
+      "dateCreated": "2021-05-03 01:19:35.804",
+      "dateStarted": "2021-05-03 01:20:05.190",
+      "dateFinished": "2021-05-03 01:20:05.457",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nresult_econ4a_1.saveAsTextFile(\u0027econ4a_1.out\u0027)\nresult_econ4a_2.saveAsTextFile(\u0027econ4a_2.out\u0027)\nresult_econ4a_3.saveAsTextFile(\u0027econ4a_3.out\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-03 01:24:43.999",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d48"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d49"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d50"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620018738883_731046156",
+      "id": "paragraph_1620018738883_731046156",
+      "dateCreated": "2021-05-03 01:12:18.884",
+      "dateStarted": "2021-05-03 01:24:44.008",
+      "dateFinished": "2021-05-03 01:24:45.169",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\necon4b_1 \u003d lines1.map(lambda x: (int(x[55]), 1))\nresult_econ4b_1 \u003d econ4b_1.reduceByKey(add).sortBy(lambda x : x[0]).map(lambda x: (x[1]/8790))\n\necon4b_2 \u003d lines2.map(lambda x: (int(x[55]), 1))\nresult_econ4b_2 \u003d econ4b_2.reduceByKey(add).sortBy(lambda x: x[0]).map(lambda x: (x[1]/8974))\n\necon4b_3 \u003d lines3.map(lambda x: (int(x[55]), 1))\nresult_econ4b_3 \u003d econ4b_3.reduceByKey(add).sortBy(lambda x: x[0]).map(lambda x: (x[1]/7505))",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-03 01:26:53.850",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d51"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d52"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d53"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d54"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d55"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d56"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620018905564_2004110742",
+      "id": "paragraph_1620018905564_2004110742",
+      "dateCreated": "2021-05-03 01:15:05.565",
+      "dateStarted": "2021-05-03 01:26:53.852",
+      "dateFinished": "2021-05-03 01:26:54.824",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nresult_econ4b_1.saveAsTextFile(\u0027econ4b_1.out\u0027)\nresult_econ4b_2.saveAsTextFile(\u0027econ4b_2.out\u0027)\nresult_econ4b_3.saveAsTextFile(\u0027econ4b_3.out\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-03 01:27:14.233",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d57"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d58"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d59"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620019613852_1103884115",
+      "id": "paragraph_1620019613852_1103884115",
+      "dateCreated": "2021-05-03 01:26:53.852",
+      "dateStarted": "2021-05-03 01:27:14.235",
+      "dateFinished": "2021-05-03 01:27:15.543",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n# get econ5 realted columns and count\necon5aa_1 \u003d lines1.map(lambda x: (int(x[68]), 1))\nresult_econ5aa_1 \u003d econ5aa_1.reduceByKey(add).sortBy(lambda x: x[0]).map(lambda x: (x[1]/8790))\n\necon5aa_2 \u003d lines2.map(lambda x: (int(x[68]), 1))\nresult_econ5aa_2 \u003d econ5aa_2.reduceByKey(add).sortBy(lambda x: x[0]).map(lambda x: (x[1]/8974))\n\necon5aa_3 \u003d lines3.map(lambda x: (int(x[68]), 1))\nresult_econ5aa_3 \u003d econ5aa_3.reduceByKey(add).sortBy(lambda x: x[0]).map(lambda x: (x[1]/7505))",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-15 05:06:39.646",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d63"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d64"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d65"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d66"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d67"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d68"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620019634234_692409750",
+      "id": "paragraph_1620019634234_692409750",
+      "dateCreated": "2021-05-03 01:27:14.234",
+      "dateStarted": "2021-05-03 01:37:28.172",
+      "dateFinished": "2021-05-03 01:37:29.064",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nresult_econ5aa_1.saveAsTextFile(\u0027econ5aa_1.out\u0027)\nresult_econ5aa_2.saveAsTextFile(\u0027econ5aa_2.out\u0027)\nresult_econ5aa_3.saveAsTextFile(\u0027econ5aa_3.out\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-03 01:42:40.793",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d92"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d93"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d94"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620020532044_1873397885",
+      "id": "paragraph_1620020532044_1873397885",
+      "dateCreated": "2021-05-03 01:42:12.044",
+      "dateStarted": "2021-05-03 01:42:40.795",
+      "dateFinished": "2021-05-03 01:42:41.525",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\necon5ab_1 \u003d lines1.map(lambda x: (int(x[69]), 1))\nresult_econ5ab_1 \u003d econ5ab_1.reduceByKey(add).sortBy(lambda x: x[0]).map(lambda x: (x[1]/8790))\n\necon5ab_2 \u003d lines2.map(lambda x: (int(x[69]), 1))\nresult_econ5ab_2 \u003d econ5ab_2.reduceByKey(add).sortBy(lambda x: x[0]).map(lambda x: (x[1]/8974))\n\necon5ab_3 \u003d lines3.map(lambda x: (int(x[69]), 1))\nresult_econ5ab_3 \u003d econ5ab_3.reduceByKey(add).sortBy(lambda x: x[0]).map(lambda x: (x[1]/7505))",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-03 01:43:03.042",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d95"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d96"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d97"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d98"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d99"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d100"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620020147435_659138879",
+      "id": "paragraph_1620020147435_659138879",
+      "dateCreated": "2021-05-03 01:35:47.435",
+      "dateStarted": "2021-05-03 01:43:03.044",
+      "dateFinished": "2021-05-03 01:43:03.925",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\nresult_econ5ab_1.saveAsTextFile(\u0027econ5ab_1.out\u0027)\nresult_econ5ab_2.saveAsTextFile(\u0027econ5ab_2.out\u0027)\nresult_econ5ab_3.saveAsTextFile(\u0027econ5ab_3.out\u0027)",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-03 01:43:07.331",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9.0,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d101"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d102"
+            },
+            {
+              "jobUrl": "http://hc06.nyu.cluster:32861/jobs/job?id\u003d103"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620020259881_1055953323",
+      "id": "paragraph_1620020259881_1055953323",
+      "dateCreated": "2021-05-03 01:37:39.881",
+      "dateStarted": "2021-05-03 01:43:07.333",
+      "dateFinished": "2021-05-03 01:43:08.324",
+      "status": "FINISHED"
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-05-03 01:38:57.155",
+      "progress": 0,
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1620020337155_1640026029",
+      "id": "paragraph_1620020337155_1640026029",
+      "dateCreated": "2021-05-03 01:38:57.155",
+      "status": "READY"
+    }
+  ],
+  "name": "survey_analysis",
+  "id": "2G3XWNHNB",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
